@@ -74,15 +74,15 @@ while not exit:
   klik = pygame.mouse.get_pressed()
   
   if klik[0]:
-    if 100+200 > muis[0] > 100 and 100+300 > muis[1] > 100:
+    if 100+200 > muis[0] > 100 and 100+200 > muis[1] > 100:
       bakken = 3
   
   if klik[0]:
-    if 400+200 > muis[0] > 400 and 400+300 > muis[1] > 400:
+    if 400+200 > muis[0] > 400 and 400+200 > muis[1] > 100:
       bakken = 2
 
   if klik[0]:
-    if 700+200 > muis[0] > 700 and 700+300 > muis[1] > 700:
+    if 700+200 > muis[0] > 700 and 700+200 > muis[1] > 100:
       bakken = 1             
   
   screen.fill(wit)
