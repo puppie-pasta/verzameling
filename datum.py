@@ -34,7 +34,7 @@ def dagnaam(nummer):
     return "dinsdag"
   if nummer == 4:
     return "woensdag"
-  if nummer == 5: 
+  if nummer == 5:
     return "donderdag"
   if nummer == 6:
     return "vrijdag"
@@ -55,23 +55,23 @@ def schrikkeljaar(huidigjaar):
 
 def maanface(maanlicht):
   font = pygame.font.SysFont(None,40)
-  text = font.render(("de maanface is")+str(maanlicht),True,zwart)
-  screen.blit(text,[300,500])    
+  text = font.render(("De maanface is")+str(maanlicht),True,zwart)
+  screen.blit(text,[300,500])
 
 def temperatuur(graden):
   font = pygame.font.SysFont(None,40)
-  text = font.render(("de maximaal temperatuur is")+str(graden),True,zwart)
-  screen.blit(text,[100,500])      
+  text = font.render(("De maximaal temperatuur is  ")+str(graden),True,zwart)
+  screen.blit(text,[100,500])
 
 def vuurwerk(afgestoken):
   font = pygame.font.SysFont(None,40)
-  text = font.render(("de hoeveelheid vuurwerk dat werd afgestoken is")+str(afgestoken),True,zwart)
+  text = font.render(("De hoeveelheid vuurwerk dat werd afgestoken is")+str(afgestoken),True,zwart)
   screen.blit(text,[0,400])
 
 
 def afsluittekst():
   font = pygame.font.SysFont(None,40)
-  text = font.render(("Press 'Q' to quit"),True,oranje)
+  text = font.render(("Druk op 'Q' om af te sluiten"),True,oranje)
   screen.blit(text,[10,10])
 
 def jaar(jaren):
@@ -85,7 +85,7 @@ def jaar(jaren):
   screen.blit(bijschrifttext,[455,350])
 
 def maand(maanden):
-  getal = pygame.font.SysFont(None,50) 
+  getal = pygame.font.SysFont(None,50)
   bijschrift = pygame.font.SysFont(None,30)
 
   getaltext = getal.render(str(maanden).zfill(2),True,zwart)
@@ -99,13 +99,13 @@ def dag(dagen, speciaal = 0):
   bijschrift = pygame.font.SysFont(None,30)
   naampje = pygame.font.SysFont(None,80)
 
-  getaltext = getal.render(str(dagen).zfill(2),True,zwart) 
+  getaltext = getal.render(str(dagen).zfill(2),True,zwart)
   bijschrifttext = bijschrift.render(("Dag"),True,zwart)
   naampjetext = naampje.render((dagnaam(dagnummer)),True,zwart)
 
   screen.blit(getaltext,[250,300])
   screen.blit(bijschrifttext,[250,350])
-  screen.blit(naampjetext,[250,200])  
+  screen.blit(naampjetext,[250,200])
 
 pygame.quit = False
 
@@ -131,7 +131,7 @@ while not pygame.quit:
         if dagen <= 1 and maanden == 1:
           afgestoken += random.randrange(1000,3000)
         if dagen >= 2 and maanden == 1:
-          afgestoken = random.randrange(1,10) 
+          afgestoken = random.randrange(1,10)
         if dagen >= 7 and maanden == 1:
           afgestoken = random.randrange(1,3)
         if dagen >= 1 and maanden == 2:
@@ -207,17 +207,17 @@ while not pygame.quit:
         if dagen >= 11 and maanden == 12:
           graden = random.randrange(-6,12)
         if dagen >= 21 and maanden == 12:
-          graden = random.randrange(-8,12)   
+          graden = random.randrange(-8,12)
 
       if event.key == pygame.K_d:
         dag(dagen)
         dagen -= 1
-        dagnummer -= 1  
-      
+        dagnummer -= 1
+
       if event.key == pygame.K_q:
         pygame.quit = True
 
-    
+
   screen.fill(wit)
 
 # Verjaardag Florian
@@ -229,7 +229,7 @@ while not pygame.quit:
   # Verjaardag Simon
   if dagen == 24 and maanden == 11 and jaren >= 1989:
     verjaardag = pygame.font.SysFont(None,70)
-    verjaardagtekst = verjaardag.render(("Gefeliciteerd Simon"),True,zwart) 
+    verjaardagtekst = verjaardag.render(("Gefeliciteerd Simon"),True,zwart)
     screen.blit(verjaardagtekst,[190,500])
 
   # Dagnaam
@@ -237,7 +237,7 @@ while not pygame.quit:
     dagnummer = 1
 
   if dagnummer < 1:
-    dagnummer = 7  
+    dagnummer = 7
 
   # Januari
   if dagen > 31 and maanden == 1:
@@ -248,8 +248,8 @@ while not pygame.quit:
   if dagen < 1 and maanden == 1:
     maanden = 12
     dagen = 31
-    jaren -= 1  
-  
+    jaren -= 1
+
   # Februari met schrikkeljaar
   if dagen > 29 and maanden == 2 and schrikkeljaar(jaren) == 1:
     maanden = 3
@@ -271,20 +271,20 @@ while not pygame.quit:
     dagen = 1
 
 
-  if dagen < 1 and maanden == 3 and schrikkeljaar(jaren) == 0: 
+  if dagen < 1 and maanden == 3 and schrikkeljaar(jaren) == 0:
     maanden = 2
     dagen = 28
 
   if dagen < 1 and maanden == 3 and schrikkeljaar(jaren) == 1:
     maanden = 2
-    dagen = 29    
-  
+    dagen = 29
+
   # April
   if dagen > 30 and maanden == 4:
     maanden = 5
     dagen = 1
-  
-  if dagen < 1 and maanden == 4: 
+
+  if dagen < 1 and maanden == 4:
     maanden = 3
     dagen = 31
 
@@ -295,16 +295,16 @@ while not pygame.quit:
 
   if dagen < 1 and maanden == 5:
     maanden = 4
-    dagen = 30  
-  
+    dagen = 30
+
   # Juni
-  if dagen > 30 and maanden == 6:    
+  if dagen > 30 and maanden == 6:
     maanden = 7
     dagen = 1
 
-  if dagen < 1 and maanden == 6:    
+  if dagen < 1 and maanden == 6:
     maanden = 5
-    dagen = 31  
+    dagen = 31
 
   # Juli
   if dagen > 31 and maanden == 7:
@@ -313,7 +313,7 @@ while not pygame.quit:
 
   if dagen < 1 and maanden == 7:
     maanden = 6
-    dagen = 30     
+    dagen = 30
 
   # Augustus
   if dagen > 31 and maanden == 8:
@@ -322,7 +322,7 @@ while not pygame.quit:
 
   if dagen < 1 and maanden == 8:
     maanden = 7
-    dagen = 31 
+    dagen = 31
 
   # September
   if dagen > 30 and maanden == 9:
@@ -331,7 +331,7 @@ while not pygame.quit:
 
   if dagen < 1 and maanden == 9:
     maanden = 8
-    dagen = 31 
+    dagen = 31
 
   # Oktober
   if dagen > 31 and maanden == 10:
@@ -340,16 +340,16 @@ while not pygame.quit:
 
   if dagen < 1 and maanden == 10:
     maanden = 9
-    dagen = 30 
+    dagen = 30
 
   # November
   if dagen > 30 and maanden == 11:
     maanden = 12
-    dagen = 1 
+    dagen = 1
 
   if dagen < 1 and maanden == 11:
     maanden = 10
-    dagen = 31 
+    dagen = 31
 
   # December
   if dagen > 31 and maanden == 12:
@@ -362,7 +362,7 @@ while not pygame.quit:
     dagen = 30
 
   if afgestoken < 0:
-    afgestoken = 0  
+    afgestoken = 0
 
   uren += 1
   if uren > 100:
@@ -445,11 +445,11 @@ while not pygame.quit:
       graden = random.randrange(-8,12)
 
     if maanlicht > 200:
-      maanlicht = 0    
+      maanlicht = 0
 
   temperatuur(graden)
   afsluittekst()
-  jaar(jaren)    
+  jaar(jaren)
   maand(maanden)
   dag(dagen)
   pygame.display.update()
