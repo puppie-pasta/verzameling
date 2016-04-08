@@ -21,6 +21,10 @@ graden = 0
 uren = 0
 mens_groote = float(50.0)
 maanlicht = 0
+uur = 0
+minuten = 0
+uur2 = 0
+minuten2 = 0
 
 global dagnummer
 dagnummer = 1
@@ -52,6 +56,26 @@ def schrikkeljaar(huidigjaar):
       return 1
   else:
     return 0
+
+def tijd_minuten2(minuten2):
+  font = pygame.font.SysFont(None,40)
+  text = font.render(":"+str(minuten),True,zwart)
+  screen.blit(text,[150,400])
+
+def tijd_uur2(uur2):
+  font = pygame.font.SysFont(None,40)
+  text = font.render(("zonsondergang")+str(uur2),True,zwart)
+  screen.blit(text,[100,400])
+
+def tijd_minuten(minuten):
+  font = pygame.font.SysFont(None,40)
+  text = font.render(":"+str(minuten),True,zwart)
+  screen.blit(text,[150,500])
+
+def tijd_uur(uur):
+  font = pygame.font.SysFont(None,40)
+  text = font.render(("zonsopkomst")+str(uur),True,zwart)
+  screen.blit(text,[100,500])
 
 def maanface(maanlicht):
   font = pygame.font.SysFont(None,40)
@@ -447,9 +471,25 @@ while not pygame.quit:
     if maanlicht > 200:
       maanlicht = 0
 
-  temperatuur(graden)
+  if minuten == 60:
+    minuten = 0
+    uur += 1
+  
+  if uur == 24:
+    uur = 0 
+
+  if dagen == 21 and maanden == 12:
+    uur = 8
+    minuten = 0
+    uur2 = 17
+    minuten2 = 0
+  
   afsluittekst()
   jaar(jaren)
   maand(maanden)
   dag(dagen)
+  tijd_uur()
+  tijd_minuten()
+  tijd_uur2()
+  tijd_minuten2()
   pygame.display.update()

@@ -1,36 +1,22 @@
 import pygame
-import pygame.locals
- 
-white = (255, 255, 255)
- 
+
 pygame.init()
- 
-display = pygame.display.set_mode((300, 300))
-fpsClock = pygame.time.Clock()
- 
-image = pygame.image.load('w.png')
-draai = 1400
 
-ecit = False
- 
-while 1:
+wit = (255,255,255)
 
- 
-    display.fill(white)
+screen = pygame.display.set_mode((500,500))
 
-    draai = 1
-    
-    image = pygame.transform.rotate(image, draai)
-    rect = image.get_rect()
-    rect.center = (150,150)
- 
-    display.blit(image, rect)
+foto = pygame.image.load("w.jpg")
+screen.blit(foto,[0,0])
+draai_foto = pygame.rotate(foto,1)
 
-    for event in pygame.event.get():
-      if event.type == pygame.KEYDOWN:
-        if event.key == pygame.K_q:
-          exit = True 
+exit = False
 
-
-    pygame.display.update()
-    fpsClock.tick(60)
+while not exit:
+  for event in pygame.event.get():
+    if event.type == pygame.KEYDOWN:
+      if event.key == pygame.K_q:
+        exit = True      
+  
+  foto
+  pygame.display.update()
