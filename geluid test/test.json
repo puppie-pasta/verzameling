@@ -1,0 +1,23 @@
+{
+	"id": "piano",
+
+	"lad": "51.9219506",
+	"lng": "4.6259882",
+	"heading": "60",
+	"pitch": "1",
+
+	"sounds": [
+	{
+		"name": "luchtalarm",
+		"lat":  "51.9219506",
+		"lng":  "4.6259882",
+		"scr": [
+		"luchtalarm.wav"
+
+		],
+		"db": "100",
+		"pause": "0",
+
+	}
+	]
+}
